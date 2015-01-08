@@ -13,7 +13,7 @@ class UsersManager(BaseUserManager):
         u.set_password(raw_password=password)
         u.gender = kwargs['gender']
 
-        u.save()
+        u.save(using=self.db)
 
         return u
 
@@ -26,7 +26,7 @@ class UsersManager(BaseUserManager):
         )
         super_user.is_admin = True
 
-        super_user.save()
+        super_user.save(using=self.db)
 
         return super_user
 
