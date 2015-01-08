@@ -10,7 +10,6 @@ class TestUserManager(TestCase):
         self.valid_gender = 0
         self.valid_password = "abc123"
 
-
     def test_kwargs_must_contain_gender(self):
         self.assertRaises(
             ValidationError,
@@ -19,3 +18,21 @@ class TestUserManager(TestCase):
             email=self.valid_email,
             password=self.valid_password,
             not_gender=self.valid_gender)
+
+    def test_password_must_be_contained(self):
+        self.assertRaises(
+            ValidationError,
+            User.objects.create_user,
+            user_name=self.valid_username,
+            email=self.valid_email,
+            gender=self.valid_gender)
+
+    def test_valid_information_saved_successfully(self):
+        self.assertIsNotNone(
+            User.objects.create_user(
+                user_name=self.valid_username,
+                email=self.valid_email,
+                password=self.valid_password,
+                gender=self.valid_gender,
+            )
+        )
