@@ -1,4 +1,4 @@
 # Created by .gitignore support plugin (hsz.mobi)
 db.sqlite3
 users/migrations/*
-*.py[cod]
+*.pyc
