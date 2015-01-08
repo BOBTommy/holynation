@@ -17,6 +17,19 @@ class UsersManager(BaseUserManager):
 
         return u
 
+    def create_super_user(self, user_name, email, password, **kwargs):
+        super_user = self.create_user(
+            user_name=user_name,
+            email=email,
+            password=password,
+            gender=kwargs['gender']
+        )
+        super_user.is_admin = True
+
+        super_user.save()
+
+        return super_user
+
     def validate_kwargs(self, kwargs):
         if not "gender" in kwargs:
             raise ValidationError("Gender must be specified.")

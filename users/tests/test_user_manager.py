@@ -36,3 +36,12 @@ class TestUserManager(TestCase):
                 gender=self.valid_gender,
             )
         )
+
+    def test_super_user_must_is_admin_true(self):
+        super_user = User.objects.create_super_user(
+            user_name=self.valid_username,
+            email=self.valid_email,
+            password=self.valid_password,
+            gender=self.valid_gender,
+        )
+        self.assertTrue(super_user.is_admin)
