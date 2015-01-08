@@ -7,9 +7,8 @@ class UsersManager(BaseUserManager):
     def create_user(self, user_name, email=None, password=None, **kwargs):
         self.validate_kwargs(kwargs)
         self.validate_password(password=password)
-        u = User()
-        u.user_email = email
-        u.user_name = user_name
+        u = self.model(user_email=email,
+                       user_name=user_name,)
         u.set_password(raw_password=password)
         u.gender = kwargs['gender']
 
