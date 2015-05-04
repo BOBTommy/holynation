@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        html,body {
+            height: 100%;
+            /* The html and body elements cannot have any padding or margin. */
+        }
+        /* Wrapper for page content to push down footer */
+        wrap {
+            min-height: 100%;
+            height: auto !important;
+            height: 100%;
+            /* Negative indent footer by it's height */
+            margin: 0 auto -60px;
+        }
+
+        /* Set the fixed height of the footer here */
+        push,
+        footer {
+            height: 60px;
+        }
+        footer {
+            background-color: #eee;
+        }
+
+        /* Lastly, apply responsive CSS fixes as necessary */
+        @media (max-width: 767px) {
+            footer {
+                margin-left: -20px;
+                margin-right: -20px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }</style>
+</head>
+<body>
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">운영 - 세광청년회</p>
+    </div>
+</footer>
+</body>
+</html>
+
